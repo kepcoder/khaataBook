@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+</head>
+<style>
+    h2{
+        color:white;
+    }
+</style>
+<body>
+
+<div class="main">
+
+<nav class="navbar">
+    <div class="logo">
+         <h3>KhaataBook</h3>
+    </div>
+    <div class="menu">
+          <p><a href="/">Home</a></p>
+          <p><a href="/create">Create New Hisaab</a></p>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>All History</h2>
+     <%if(folder.length > 0){%>
+        <%folder.forEach((val)=>{%>
+            <div class="files">
+                <div class="date">
+                   <p><%= val %></p>
+                   <p><a href="/read/<%= val %>"><i class="ri-arrow-right-circle-fill"></i></a></p>
+                </div>
+                <div class="delete">
+                    <p><a href="/update/<%=val%>"><i class="ri-pencil-fill"></i></a></p>
+                    <p><a href="delete/<%=val%>" onclick="return confirmation('<%=val%>')"><i class="ri-delete-bin-6-fill"></i></a></p>
+                </div>
+               </div>
+        <%})%>
+     <%} else{%>
+        <h2>Koi Hisaab Nhi Hai</h2>
+     <%}%>
+</div>
+
+
+
+</div>    
+
+
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>
